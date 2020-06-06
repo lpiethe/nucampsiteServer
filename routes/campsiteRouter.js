@@ -43,10 +43,10 @@ campsiteRouter.route('/')
 campsiteRouter.route('/:campsiteId')
 .get((req, res, next) => {
     Campsite.findById(req.params.campsiteId)
-    .then(campsite => {
+    .then(campsites => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
-        res.json(campsite);
+        res.json(campsites);
     })
     .catch(err => next(err));
 })
